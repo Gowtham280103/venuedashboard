@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Stadium Dashboard</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo">
+          <span class="logo-icon">🏟️</span>
+          <span class="logo-text">StadiumOS <span class="logo-sub">Live</span></span>
+        </div>
+        <div class="event-info">
+          <span class="event-name">Champions League Final</span>
+          <span class="event-status pulse-dot">● LIVE</span>
+        </div>
+      </div>
+      <div class="header-center">
+        <div class="stat-pill" id="attendance-pill">
+          <span class="stat-label">Attendance</span>
+          <span class="stat-value" id="attendance-val">—</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-label">Capacity</span>
+          <span class="stat-value">30,000</span>
+        </div>
+        <div class="stat-pill" id="fill-pill">
+          <span class="stat-label">Fill Rate</span>
+          <span class="stat-value" id="fill-val">—</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="connection-status" id="conn-status">
+          <span class="conn-dot"></span>
+          <span class="conn-text">Connecting...</span>
+        </div>
+        <div class="time-display" id="clock"></div>
+      </div>
+    </header>
+
+    <!-- Main Grid -->
+    <main class="main-grid">
+      <!-- Left: Stadium Map -->
+      <section class="panel map-panel">
+        <div class="panel-header">
+          <h2>Live Stadium Map</h2>
+          <div class="legend">
+            <span class="legend-item low">Low</span>
+            <span class="legend-item med">Medium</span>
+            <span class="legend-item high">High</span>
+            <span class="legend-item crit">Critical</span>
+          </div>
+        </div>
+        <div class="map-container">
+          <canvas id="stadium-map"></canvas>
+          <div id="map-tooltip" class="map-tooltip hidden"></div>
+        </div>
+      </section>
+
+      <!-- Right: Waiting Times -->
+      <section class="panel waiting-panel">
+        <div class="panel-header">
+          <h2>Waiting Times</h2>
+          <span class="badge">Live</span>
+        </div>
+
+        <div class="wait-section">
+          <h3 class="wait-category">🚪 Gates</h3>
+          <div class="wait-cards" id="gates-cards"></div>
+        </div>
+
+        <div class="wait-section">
+          <h3 class="wait-category">🍔 Food & Beverage</h3>
+          <div class="wait-cards" id="food-cards"></div>
+        </div>
+
+        <div class="wait-section">
+          <h3 class="wait-category">🚻 Restrooms</h3>
+          <div class="wait-cards" id="restroom-cards"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Bottom Section -->
+    <div class="bottom-grid">
+      <!-- Staff Allocation -->
+      <section class="panel staff-panel">
+        <div class="panel-header">
+          <h2>Staff Allocation</h2>
+        </div>
+        <div id="staff-bars"></div>
+      </section>
+
+      <!-- Alerts -->
+      <section class="panel alerts-panel">
+        <div class="panel-header">
+          <h2>Priority Alerts</h2>
+          <span class="badge badge-red" id="alert-count">0</span>
+        </div>
+        <div id="alerts-list" class="alerts-list"></div>
+      </section>
+
+      <!-- Crowd Trend Chart -->
+      <section class="panel chart-panel">
+        <div class="panel-header">
+          <h2>Crowd Trend</h2>
+          <span class="chart-subtitle">Last 60 minutes</span>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="crowd-chart"></canvas>
+        </div>
+      </section>
+    </div>
+
+    <!-- AI Suggestions -->
+    <section class="panel ai-panel">
+      <div class="panel-header">
+        <h2>🤖 AI Crowd Intelligence</h2>
+        <span class="ai-badge">Powered by StadiumAI</span>
+      </div>
+      <div id="ai-suggestions" class="ai-suggestions"></div>
+    </section>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
